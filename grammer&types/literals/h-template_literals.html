@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>template literal</title>
+</head>
+<body>
+  <script>
+      /* In ES2015, template literals are also available. 
+      Template literals are enclosed by the back-tick(`)*/
+
+      //basic literal string creation
+      let str01  = `In JavaScript '\n' is a line-feed.`;
+      console.log(str01);
+
+      //multiline strings
+      let str02 = `In JavaScript, template strings can run
+ over multiple lines, but double and single
+ quoted strings cannot.`
+      console.log(str02);
+
+      //String interpolation (syntactic sugar)
+      var name = 'Bob', time = 'today';
+      let str03 = `Hello ${name}, how are you ${time}?`;
+      console.log(str03);
+
+  </script>
+</body>
+</html>

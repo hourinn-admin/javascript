@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Array literals</title>
+</head>
+<body>
+  <script>
+    /*An object literal is a list of zero or more pairs of property names and associated values of an object, 
+    enclosed in curly braces ({}).*/
+    var sales = 'Toyota';
+    function carTypes(name) {
+      if (name === 'Honda') {
+        return name;
+      } else {
+        return "Sorry, we don't sell " + name + ".";
+      }
+    }
+
+    var car = { myCar: 'Saturn', getCar: carTypes('Honda'), special: sales };
+
+    console.log(car.myCar);   // Saturn
+    console.log(car.getCar);  // Honda
+    console.log(car.special); // Toyota 
+
+    var car = { manyCars: {a: 'Saab', b: 'Jeep'}, 7: 'Mazda' };
+
+    console.log(car.manyCars.a); // Saab
+    console.log(car[7]); // Mazda
+        
+  </script>
+</body>
+</html>

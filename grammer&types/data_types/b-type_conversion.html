@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Data type conversion</title>
+</head>
+<body>
+  <script>
+  /*JavaScript is a dynamically typed language,So don't have to specify the data type
+  of a variable when declare it,data type are automatically converted as-needed.
+  */
+  //auto-convert
+  let message = "hello world";
+  console.log(typeof message);  //string
+  message = 100;
+  console.log(typeof message);  //number
+  
+  let sym = Symbol("sym");
+  sym = false;
+  console.log(typeof sym);  //boolean
+
+  //string to number
+  let str = "101";
+  console.log(parseInt(str,10));    //101
+  console.log(parseInt(str,2));     //5
+  </script>
+</body>
+</html>

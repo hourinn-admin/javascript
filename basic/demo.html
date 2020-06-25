@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>hello world</title>
+</head>
+<body>
+  <img src="image/tanao.jpg">
+  <script>
+      let myImg = document.querySelector('img');
+      myImg.onclick = function(){
+        let srcAttr = myImg.getAttribute('src');
+        if(srcAttr === 'image/tanao.jpg'){
+          srcAttr = "image/tanao1.jpg";
+        }else{
+          srcAttr = 'image/tanao.jpg';
+        }
+        myImg.setAttribute('src',srcAttr);
+      }
+    
+
+    
+</script>
+</body>
+</html>

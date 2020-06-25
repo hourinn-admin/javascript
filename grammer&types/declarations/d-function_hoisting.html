@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>function hoisting</title>
+</head>
+<body>
+  <p></p>
+  <script>
+
+      /*funcation declarations are hoisted*/
+      foo();                    // "bar"
+
+      function foo() {
+        console.log('bar');
+      }
+     
+      /*funcation expression won't be hoisted*/
+      baz();                  // TypeError: baz is not a function
+      var baz = function(){
+        console.log('baz executed')
+      }
+
+      
+
+      
+
+  </script>
+</body>
+</html>

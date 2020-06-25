@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>variable undefined</title>
+</head>
+<body>
+  <p></p>
+  <script>
+      var x;
+      console.log('The value of x is ' + x); // The value of x is undefined
+      let y;
+      console.log('The value of y is ' + y); // The value of y is undefined
+      
+      if(x === undefined){
+        doThis();
+      }
+      
+      //the undefined value behaves as flase
+      if(!x){
+        doThis();
+      }
+
+      if(y == undefined){
+        doThat()
+      }
+      
+      //the undefined value behaves as flase
+      if(!y){
+        doThat();
+      }
+
+      function doThis(){
+         console.log('doThis executed'); 
+      }
+
+      function doThat(){
+         console.log('doThat executed'); 
+      }
+
+  </script>
+</body>
+</html>

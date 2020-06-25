@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>constants</title>
+</head>
+<body>
+  <p></p>
+  <script>
+
+      /*A constant cannot change value through assignment or be re-declared while the script is running. 
+      It must be initialized to a value.*/
+
+      //1.It must be initialized to a value.
+      //const i;   //syntaxError: Missing initializer in const declaration
+
+      //2.a constant cannot change value
+      const j = 35;
+      //j = 40;    //TypeError: Assignment to constant variable.
+      
+      //3.However the properties of object assigned to constants can change value;
+      const myPara = {'textContent':'value'};
+      myPara.textContent = 'otherValue';
+      console.log(myPara.textContent);     //otherValue
+
+      //4.Also,the contents of an array can change value.
+      const products = ['apple','computer'];
+      products.push('mouse');
+      console.log(products);    //(3) ["apple", "computer", "mouse"]
+
+      
+
+  </script>
+</body>
+</html>

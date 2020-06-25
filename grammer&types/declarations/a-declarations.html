@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript Declarations</title>
+</head>
+<body>
+  <p></p>
+  <script>
+      /*three kinds of variable declarations:var let const*/
+      
+      /*two ways to declare a variable:
+        1.with the keyword var. eg:var x = xxx;
+          this syntax can be used to declare both local and global variables
+        2.with the keyword const or let. eg:let x = xxx;
+          this syntax can be used to declare a block-scope local variable
+          ※const is read-only  
+          */
+     
+      /********************************************************************/
+
+      /*variable scope for keyword var:
+            1.global variable:declare a variable outside of any function, 
+            2.local variable:declare a variable within a function
+      */
+      //local variable
+      function doSomething(){
+        if(true){
+          var x = 5;
+        } 
+        console.log(x);    //5
+      }
+      //console.log(x);      //x is not defined
+      
+      //global variable
+      var y = 10;
+      if(true){
+        var y = 15;
+      }
+      //console.log(y);      //15
+
+      /********************************************************************/
+      
+      // block-scope local variable
+      if(true){
+        let z = 20;
+        z = 25;
+        console.log(z);    //25
+      }
+      //console.log(z);      //z is not defined 
+      
+      // block-scope local variable ,read-only
+      if(true){
+        const i = 25;
+        i = 30;              //TypeError: Assignment to constant variable
+        console.log(i);      //25
+      }
+      console.log(i);        //i is not defined 
+
+      /********************************************************************/
+      //A constant cannot change value through assignment or be re-declared while the script is running. 
+      //It must be initialized to a value.
+      const j = 35;
+      j = 40;    //error
+
+
+  </script>
+</body>
+</html>

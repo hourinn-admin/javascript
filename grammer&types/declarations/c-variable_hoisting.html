@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>variable hoisting</title>
+</head>
+<body>
+  <p></p>
+  <script>
+      /*variable hoisting is that you can refer to a variable declared later.without getting an exception*/
+      
+      /********************************************/
+      //example 1 grobal variable
+      console.log(x === undefined);  //true
+      var x = 5;
+
+      //equals ====>
+      var y;
+      console.log(y === undefined); // true
+      y = 5;
+
+      
+      //example2 local variable
+      var myvar = "my value";
+      (function doSomething(){
+        console.log(myvar);         //undefined
+        var myvar = 'local value';  
+      })();
+
+      //equals ====>
+      var myvar = "my value";
+      (function doSomething(){
+        var myvar;
+        console.log(myvar);         //undefined
+        myvar = 'local value';  
+      })();
+
+      /********************************************/
+
+      
+      
+
+      
+
+  </script>
+</body>
+</html>

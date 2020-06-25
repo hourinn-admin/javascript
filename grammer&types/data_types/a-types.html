@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript All Data Types</title>
+</head>
+<body>
+  <script>
+  /*The lastest ECMAScript standard defines eight data types
+  six data types that are primitives:  
+    1.String  
+    2.Boolean
+    3.Number
+    4.BigInt
+    5.undefined
+    6.Symbol
+
+  7.null
+  8.Object
+  */
+
+  /*in JavaScript , having six primitive data types */
+
+  let message = 'hello';
+  console.log(typeof message +':'+ message.valueOf())  //string:hello
+
+  let flag = true;
+  console.log(typeof flag +':'+ flag.valueOf())  //boolean:true
+
+  let num = 100;
+  console.log(typeof num +':'+ num.valueOf())  //number:100
+
+  let bg = 9007199254740992n;
+  console.log(typeof bg +':'+ bg.valueOf())  //bigint:9007199254740992
+
+  let b = undefined;
+  console.log(typeof b)  //undefined
+
+  let sym = Symbol("sym");
+  console.log(typeof sym +':'+ sym.description)  //symbol:sym
+
+  </script>
+</body>
+</html>

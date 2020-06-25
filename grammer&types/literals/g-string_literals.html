@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>string literal</title>
+</head>
+<body>
+  <script>
+      /* A string literal is enclosed in double(") or single(') quotation marks*/
+      let str01 = "foo";
+      let str02 = 'foo';
+      let str03 = "1234";
+      let str04 = "one line \n another line";
+      let str05 = "pulin's cat";
+
+      /*can call any of the String Object's methods and property on a string literal value
+      JavaScript automatically converts the string literal to a temporary String object
+      then discards the temporary String object*/
+      console.log(str01.toUpperCase());    //FOO
+      console.log(str01.length);           //3
+
+      /****************************************************/
+      //Using special characters in strings \n \t
+      var message = "Hello pulinnin \n \t welcome to my site";
+      console.log(message);   
+
+      
+      //escaing characters use backslash
+      var quote = "He read \'The Cremation of Sam McGee\' by R.W. Service.";
+      console.log(quote);    //He read 'The Cremation of Sam McGee' by R.W. Service.
+
+      var url = "c:\\user\\pulinnin";
+      console.log(url);   //c:\user\pulinnin
+
+      var str = 'this string \
+                  is broken \
+                  across multiple ';
+      console.log(str) ;    //this string is broken across multiple 
+
+      
+
+  </script>
+</body>
+</html>
