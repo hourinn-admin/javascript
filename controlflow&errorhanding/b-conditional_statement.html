@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>conditional statement</title>
+</head>
+<body>
+  <script>
+      //javascript support two conditional statement :if ...else and switch
+
+      
+      /**********************************************************************/
+
+      if(!false){
+        console.log('it\'s wrong');
+      }
+
+      /*The following values evaluate to false
+        .false
+        .undefined
+        .NaN
+        .null
+        .0
+        .'' ""
+      */
+
+      /*All other values ,including all objects,evaluate to a true */
+
+      if(!undefined){
+        console.log('it\'s undefined');
+      }
+
+      if(!0){
+        console.log('it\'s 0');
+      }
+
+      if(!null){
+        console.log('it\'s null');
+      }
+
+      if(!NaN){
+        console.log('it\'s NaN');
+      }
+
+      if(!''){
+        console.log('it\'s empty string');
+      }
+
+      /**********************************************************************/
+      let str = 'ccc';
+      switch (str){
+        case 'aaa':
+        console.log(str);
+        break;
+        case 'bbb':
+        console.log(str);
+        break;
+        case 'ccc':
+        console.log(str);
+        break;
+        default:
+        console.log(`sorry,not found of ${str}`);
+      }
+      
+  </script>
+</body>
+</html>

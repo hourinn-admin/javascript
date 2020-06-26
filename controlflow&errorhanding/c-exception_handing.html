@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>exception handing statement</title>
+</head>
+<body>
+  <script>
+    /*any object  can be thrown in JavaScript,it is common to throw numbers or strings as a errors*/
+
+    //throw false;
+    //throw 100;
+    //throw 'it\'s a string';
+    //throw {name:'pulinnin'};
+
+    /*try catch finally */
+    function getMonthName(mo){
+      mo = mo -1;
+      let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul',
+                'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      if(months[mo]){
+        return months[mo];
+      }else{
+        throw 'InvalidMonthNo';
+      }
+    }
+    
+    var monthNo = 13;
+    try {
+      getMonthName(monthNo);
+    }
+    catch (err) {
+      console.error(`${err}:${monthNo}`);
+    }
+
+    //using the Error Object;
+    function doSomethingError(){
+      if(true){
+        throw new Error('The Error message');
+      }
+    }
+
+    try {
+      doSomethingError();
+    }
+    catch(e) {
+      console.error(e.name +':'+ e.message);
+    }
+
+
+      
+  </script>
+</body>
+</html>
