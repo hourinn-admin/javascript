@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>break</title>
+</head>
+<body>
+  <script>
+    /*使用 break 语句来终止循环，switch， 或者是链接到 label 语句。
+    语法：break [label]
+    被 [] 包裹的内容是可省略的，也就是 label 可以省略。若省略，则终止当前所在的循环或 switch；若不省略，则终止指定的 label 语句。*/
+
+    // label 省略，终止当前所在循环或switch
+    var num01 = 0;
+    for (var i = 0 ; i < 10 ; i++) {   // i 循环
+      
+      for (var j = 0 ; j < 10 ; j++) { // j 循环
+        if( i == 5 && j == 5 ) {
+          break; // i = 5，j = 5 时，终止 j 循环，继续执行 i 循环
+        } 
+        num01++;
+      }
+    }
+
+    console.log(num02); // 输出 95
+
+    //label 不省略，  终止指定的label语句
+    var num02 = 0;
+    outPoint01:
+      //指定label循环语句
+      for (var i = 0 ; i < 10 ; i++){
+        for (var j = 0 ; j < 10 ; j++){
+          if( i == 5 && j == 5 ){
+            break outPoint01; // 在 i = 5，j = 5 时，终止outPoint01指定的循环，即终止所有循环
+          }
+          num02++;
+        }
+      }
+
+    console.log(num02); // 输出 55
+
+
+    
+
+
+
+    
+  </script>
+</body>
+</html>

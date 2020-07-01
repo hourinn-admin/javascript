@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>continue</title>
+</head>
+<body>
+  <script>
+    /*continue 语句可以用来继续执行循环
+    循环：continue [label]
+    1.当你使用不带 label 的 continue 时，终止本次循环，并开始下一次循环
+    2.当你使用带 label 的 continue 时， 它会应用被 label 标识的循环语句。*/
+
+    var num03 = 0;
+    for(var i = 0; i < 10; i++) {
+      for(var j = 0; j < 10; j++) {
+        if(i == 5 && j == 5) {
+          continue;         //跳出本次循环，继续执行
+        }
+        num03++;
+      }
+    }
+    console.log(num03);  // 99
+
+    var num04 = 0;
+    outPoint02:
+      for(var i = 0; i < 10; i++) {
+        for(var j = 0; j < 10; j++) {
+          if(i == 5 && j == 5) {
+            continue outPoint02;         //跳出当前循环，并跳转到outPoint（标签）下的 for 循环继续执行。
+          }
+          num04++;
+        }
+      }
+    console.log(num04);  // 95
+
+    
+    
+
+    
+
+
+    
+
+
+
+    
+  </script>
+</body>
+</html>
