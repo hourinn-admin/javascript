@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>three ways to create function</title>
+</head>
+<body>
+  <script>
+    
+    // function declaration
+    function calcRectArea() {
+      return 'aa';
+    }
+
+    console.log(calcRectArea);
+    
+    console.log((function(){}).constructor);
+
+    //Function expressions : the function does not have to  have a name
+    const getRectArea = function(width, height) {
+      return width * height;
+    };
+
+    //Function constructor
+    const sum = new Function('a,b', 'return a + b');
+    console.log(typeof sum);
+
+
+    
+    
+</script>
+</body>
+</html>

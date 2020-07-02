@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>change the properties of object</title>
+</head>
+<body>
+  <script>
+    
+    function doSomething(obj){
+        obj.make = 'toyota';
+    }
+    
+    var myCar = {make:'ford',code:'UX0001',year:1890};
+
+    console.log(myCar.make);   //ford
+
+    doSomething(myCar);
+
+    console.log(myCar.make);   //toyota
+
+
+    
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>nest function</title>
+</head>
+<body>
+  <script>
+    //A closure must preserve the arguments and variables in all scopes it references
+    function outside(x) {
+      function inside(y) {
+        return x + y;
+      }
+      return inside;
+    }
+    fn_inside = outside(3); // Think of it like: give me a function that adds 3 to whatever you give it
+
+    console.log(fn_inside(5)); // returns 8
+
+    console.log(outside(3)(5)); // returns 8  
+      
+       
+    
+  </script>
+</body>
+</html>
