@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>prototype</title>
+</head>
+<body>
+  <script>
+
+      //每个对象在创建时都会得到其原型（prototype）。如果原型没有显式设置，对象会以默认原型(Object.prototype)作为其继承对象。
+
+      //原型可以通过用__proto__属性或者Object.create()方法显式设置：
+
+      let point = {
+        x: 10,
+        y: 20
+      }      
+
+      let point3D = {
+        z: 30,
+        __proto__: point   
+      }
+
+      console.log(point3D);
+      
+      console.log(
+        point3D.x,
+        point3D.y,
+        point3D.z);
+
+      console.info('================================================================');
+
+      /*动态调度（dynamic dispath）:
+          如果一个属性在对象本身中找不到，就试图在原型中解析；如果还找不到，就到原型的原型中找，等等 - 直到找完整个原型链。即：动态调度机制。
+          ※静态调度是在编译时解析引用，而动态调度是在运行时*解析引用。*/
+
+      //如果要创建一个无原型的对象，我们必须显式将其原型设置为null：
+
+      let pointPure = {
+        x: 10,
+        y: 20,
+        __proto__: null
+      }
+
+      console.log(pointPure);
+
+      console.info('================================================================');
+
+      //动态调度机制允许继承链的完全可变性，随时可以改变对象的属性，包括原型. 调用API方法: Object.create、Object.getPrototypeOf、Object.setPrototypeOf
+
+      let protoA = {x:10};
+      let protoB = {x:20};
+      
+      // 与`let obj = {__proto__: protoA};`相同:
+      let obj = Object.create(protoA);
+      obj.info = 'hello!';
+      
+      console.log(obj.info + ':'+ obj.x);
+
+      Object.setPrototypeOf(obj,protoB);
+
+      console.log(obj.info + ':'+ obj.x);
+
+      console.info('================================================================');
+
+
+
+
+
+
+      
+      
+
+      
+
+
+
+
+
+      
+
+
+
+
+
+
+
+
+    
+</script>
+</body>
+</html>

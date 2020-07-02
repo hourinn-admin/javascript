@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>class</title>
+</head>
+<body>
+  <script>
+
+      //假如我们需要有多个对象，这些对象都继承自同一个原型，我们自然会先创建这个原型，然后显式从新创建的对象继承它：
+
+      let letter = {
+       getNumber: function (){
+          return this.number;
+        }
+      }
+
+      let a = {number: 10,__proto__: letter};
+      let b = {number: 20,__proto__: letter};
+      let c = {number: 30,__proto__: letter};
+
+
+      console.log(
+        a.getNumber(),
+        b.getNumber(),
+        c.getNumber()
+      );
+
+      console.info('================================================================');
+
+      //不过，这显然很麻烦。而类正是干这事的，它作为一种语法糖（即在语义上做同样事情的构造，不过是以更好的语法形式）
+      //一个类被表示为一对构造函数+原型。因此，构造函数创建对象，同时还自动为它新创建的实例设置原型。这个原型被存储在<ConstructorFunction>.prototype属性中。
+
+      class letter01 {
+        //构造函数
+        constructor(number){
+          this.number = number;
+        }
+
+        getNumber() {
+          return this.number;
+        }
+      }
+
+      let a1 = new letter01(10);
+      let b1 = new letter01(20);
+      let c1 = new letter01(30);
+
+      console.log(a1);
+
+      console.log(
+        a1.getNumber(),
+        b1.getNumber(),
+        c1.getNumber()
+      );
+
+      console.info('================================================================');
+
+      //构造函数：*构造函数*是一个用于创建实例，并自动设置实例的原型的函数。
+      //在引入类的概念之前,一般这样使用构造函数
+
+      function Letter02(number) {
+        this.number = number;
+      }
+
+      Letter02.prototype.getNumber = function() {
+        return this.number;
+      }
+
+
+      let a2 = new Letter02(10);
+      let b2 = new Letter02(20);
+      let c2 = new Letter02(30);
+
+      console.log(a2);
+
+      console.log(Letter02.prototype === Letter02.prototype.constructor.prototype);   //true   Letter02.prototype是Letter02的实例的原型
+
+      console.log(Letter02 === Letter02.prototype.constructor);         //true
+
+      console.log(
+        a2.getNumber(),
+        b2.getNumber(),
+        c2.getNumber()
+      );
+
+
+      
+
+      
+
+
+
+
+
+
+
+
+    
+</script>
+</body>
+</html>
