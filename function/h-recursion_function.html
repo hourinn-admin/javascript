@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>recursion function</title>
+</head>
+<body>
+  <script>
+
+    function  doSomething(num){
+      if(num == 1){
+        return num;
+      }
+      return  num * doSomething(num - 1);  // the recursive call
+    }
+
+    console.log(doSomething(5));   
+
+    //recursion function use a stack
+    function foo(i) {
+      if (i < 0)
+        return;
+      console.log('begin: ' + i);
+      foo(i - 1);
+      console.log('end: ' + i);
+    }
+    foo(3);
+
+    // Output:
+
+    // begin: 3
+    // begin: 2
+    // begin: 1
+    // begin: 0
+    // end: 0
+    // end: 1
+    // end: 2
+    // end: 3
+       
+    
+</script>
+</body>
+</html>

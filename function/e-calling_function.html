@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>calling function</title>
+</head>
+<body>
+  <script>
+    /*three way to call function*/
+
+    //functionname (para)
+    function square(n) { return n * n } 
+    square(10);
+
+    //apply()
+    var array = ['a', 'b'];
+    var elements = [0, 1, 2];
+    array.push.apply(array,elements);
+    console.log(array);
+
+        /*Clever usage of apply allows you to use built-in functions for some tasks 
+        that would probably have otherwise been written by looping over the array values.*/elements
+        const numbers = [5, 6, 2, 3, 7];
+        let max01 = Math.max.apply(null, numbers); 
+        
+        var max02 = -1;
+        for (let i = 0; i < numbers.length; i++) {
+          if (numbers[i] > max02) {
+            max02 = numbers[i];
+          }
+        }
+        console.log(max01 === max02);
+      
+    //call()
+       
+    
+
+
+
+    
+    
+</script>
+</body>
+</html>

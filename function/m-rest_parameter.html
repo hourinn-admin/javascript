@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>rest parameter</title>
+</head>
+<body>
+  <script>
+
+      /*The rest parameter syntax allows us to represent an indefinite number of arguments as an array.*/
+      
+      function multiply(multiplier, ...theArgs) {
+          let num = multiplier;
+          for(let i = 0;i<theArgs.length;i++){
+            num = num*theArgs[i];
+          }
+          return num;
+      }
+      console.log(multiply(2,2,3,4));
+    
+  </script>
+</body>
+</html>

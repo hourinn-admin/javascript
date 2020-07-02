@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Shorter functions</title>
+</head>
+<body>
+  <script>
+    
+    var a = [
+      'Hydrogen',
+      'Helium',
+      'Lithium',
+      'Beryllium'
+    ];
+
+    var a2 = a.map(function (s) {return s.length;});
+    console.log(a2);
+
+    var a3 = a.map(s => s.length);
+    console.log(a3);
+  </script>
+</body>
+</html>

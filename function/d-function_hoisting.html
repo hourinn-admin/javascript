@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>function hoisting</title>
+</head>
+<body>
+  <script>
+    /*function hoisting only works with function declarations*/
+
+    console.log(calcRectArea(10,20));
+
+    console.log(getRectArea(10,20));       //Cannot access 'getRectArea' before initialization
+
+    console.log(sum(10,20));               //Cannot access 'sum' before initialization   
+
+
+    // function declaration
+    function calcRectArea(width, height) {
+      return width * height;
+    }
+
+    //Function expressions : the function does not have to  have a name
+    const getRectArea = function(width, height) {
+      return width * height;
+    };
+
+    //Function constructor
+    const sum = new Function('a,b', 'return a + b');
+
+
+    
+    
+
+
+
+    
+    
+</script>
+</body>
+</html>

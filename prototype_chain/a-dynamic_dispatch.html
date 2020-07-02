@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>dynamic dispatch</title>
+</head>
+<body>
+  <script>
+    
+      //动态调度机制允许继承链的完全可变性，提供改变委托对象的能力：
+
+      let protoA = {x:10};
+      let protoB = {x:20};
+      
+      // 与`let obj = {__proto__: protoA};`相同:
+      let obj = Object.create(protoA);
+      obj.info = 'hello!';
+      
+      console.log(obj.info + ':'+ obj.x);
+
+      Object.setPrototypeOf(obj,protoB);
+
+      console.log(obj.info + ':'+ obj.x);
+
+      
+
+
+
+
+
+
+
+
+    
+</script>
+</body>
+</html>
