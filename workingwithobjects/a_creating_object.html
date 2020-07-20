@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>three ways to create a object</title>
+</head>
+<body>
+  <script>
+    
+
+    //Using a constructor function
+
+    var car = new Object();
+    car.make = 'ford';
+    car.model = 'Mustang';
+    car.year = 1969;
+
+    console.log(car.make+':'+car.model+':'+car.year);
+
+    function Car(make, model, year) {
+      this.make = make;
+      this.model = model;
+      this.year = year;
+    }
+  
+    var myCar = new Car('ford','Mustang',1969);
+    console.log(myCar.make+':'+myCar.model+':'+myCar.year);
+
+
+    // Using object initializers
+    var herCar = {
+      'make': 'toyota',
+      model: {name:'UX0001',code:'5xfdfd3'},
+      year: 2008,
+      1111: 1234
+    }
+    
+    console.log(herCar.make+':{'+herCar.model.name+':'+herCar.model.code+'}:'+herCar.year+':'+herCar[1111]);
+
+    //Using the Object.create method
+
+    var Animal = {
+      type: 'Invertebrates', // Default value of properties
+      displayType: function() {  // Method which will display type of Animal
+        console.log(this.type);
+        }
+      };
+
+    // Create new animal type called animal1 
+    var animal1 = Object.create(Animal);
+    animal1.displayType(); // Output:Invertebrates
+
+    // Create new animal type called Fishes
+    var fish = Object.create(Animal);
+    fish.type = 'Fishes';
+    fish.displayType(); // Output:Fishes
+
+
+
+
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Enumerate the properties of an object</title>
+</head>
+<body>
+  <script>
+    /* there are three native ways to list/traverse object properties:
+        .for...in loops
+        .object.keys(o)
+        .Object.getOwnPropertyNames(o)
+    */
+
+    var myCar = new Object();
+    myCar.make = 'ford';
+    myCar.model = 'Mustang';
+    myCar.year = 1969;
+
+    /********************************************************************************************/
+
+    // for...in : This method traverses all enumerable properties of an object and its prototype chain
+    function showProps(obj, objName) {
+      var result = ``;
+      for (var i in obj) {
+        // obj.hasOwnProperty() is used to filter out properties from the object's prototype chain
+        if (obj.hasOwnProperty(i)) {
+          result += `${objName}.${i} = ${obj[i]}\n`;
+        }
+      }
+      return result;
+    }
+
+    console.log(showProps(myCar, "mycar"));
+
+    /********************************************************************************************/
+
+    // object.keys(o) : This method returns an array with all the own (not in the prototype chain) enumerable properties' names ("keys") of an object o.
+    var allProps01 = Object.keys(myCar);
+    console.log(allProps01);
+
+    /********************************************************************************************/
+
+    // Object.getOwnPropertyNames(o) : This method returns an array containing all own properties' names (enumerable or not) of an object o.
+    var allProps02 = Object.getOwnPropertyNames(myCar);
+    console.log(allProps02);
+
+    /********************************************************************************************/
+    // This funcation can reveal "hidden" properties (properties in the prototype chain which are not accessible through the object)
+    function listAllProperties(o) { 
+      var objectToInspect;     
+      var result = [];
+      
+      for(objectToInspect = o; objectToInspect !== null; 
+              objectToInspect = Object.getPrototypeOf(objectToInspect)) {  
+            result = result.concat(
+                Object.getOwnPropertyNames(objectToInspect)
+            );  
+        }
+      
+      return result; 
+    }
+    console.log(myCar);
+    console.log(listAllProperties(myCar));
+
+
+
+    
+
+
+
+
+    
+</script>
+</body>
+</html>

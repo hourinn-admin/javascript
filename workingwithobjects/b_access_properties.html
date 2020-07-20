@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>two way to access properties</title>
+</head>
+<body>
+  <script>
+    /*There are two ways to access properties: dot notation and bracket notation.*/
+    // dot notation : object.property
+    var myCar = new Object();
+    myCar.make = 'ford';
+    console.log(myCar.make);
+
+    // bracket notation : object['property']
+    var herCar = new Object();
+    herCar.make = 'toyota';
+    console.log(herCar['make']);
+
+    /********************************************************************/
+
+
+    /* An Object property name can be an valid JavaScript string,or anything that can be converted to a string
+    ,including the number,the empty string,object
+    */
+    var myObj = new Object(),
+    str = 'myString',
+    rand = Math.random(),
+    obj = new Object();
+
+    myObj[str] = 'String with space';
+    myObj[rand] = 'Random Number';
+    myObj[obj] = 'Object';                 //JavaScript will call the obj.toString() method,and use this result string as the new key:[object object]
+    myObj[''] = 'Even an empty string';
+
+    console.log(myObj)
+
+    // In the object.property syntax,the property must be a valid JavaScript identifier
+    // for example, a property name that has a space or a hyphen, or that starts with a number is not valid.
+    var object = new Object();
+    //object.1 = 'bar';        // SyntaxError    
+
+    
+
+
+
+
+    
+</script>
+</body>
+</html>
