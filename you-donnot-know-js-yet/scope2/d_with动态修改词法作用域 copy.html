@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>with动态修改词法作用域</title>
+</head>
+<body>
+  <article>
+    <h3>with 通常被当作重复引用同一个对象中的多个属性的快捷方式，可以不需要重复引用对象本身。</h3>
+    <p><pre><code>
+      var obj = {
+        a: 1,
+        b: 2,
+        c: 3
+      };
+      // 单调乏味的重复"obj"
+      obj.a = 2;
+      obj.b = 3;
+      obj.c = 4;
+      // 简单的快捷方式
+      with (obj) {
+        a = 3;
+        b = 4;
+        c = 5;
+      }
+    </code></pre></p>
+
+    <p><b>但实际上这不仅仅是为了方便地访问对象属性。考虑如下代码：</b></p>
+    <p><pre><code>
+      function foo(obj) {
+        with (obj) {
+          a = 2;
+        }
+      }
+      var o1 = {
+        a: 3
+      };
+      var o2 = {
+        b: 3
+      };
+      foo( o1 );
+      console.log( o1.a ); // 2
+      foo( o2 );
+      console.log( o2.a ); // undefined
+      console.log( a ); // 2——不好，a 被泄漏到全局作用域上了！
+    </code></pre></p>
+
+    <p>而当o 传递进去，o 并没有a 属性，因此不会创建这个属性，o.a 保持undefined。<br>
+      但是可以注意到一个奇怪的副作用，实际上a = 2 赋值操作创建了一个全局的变量a。这是怎么回事？</p>
+    <p>with 可以将一个没有或有多个属性的对象处理为一个完全隔离的词法作用域，因此这个对象的属性也会被处理为定义在这个作用域中的词法标识符。</p>
+    <p>
+      可以这样理解，当我们传递o 给with 时，with 所声明的作用域是o，而这个作用域中并没有a 标识符，<br>
+      因此进行了正常的LHS 标识符查找o 的作用域、foo(..) 的作用域和全局作用域中都没有找到标识符a，<br>
+      因此当a＝2 执行时，自动创建了一个全局变量（因为是非严格模式）。<br>
+    </p>
+
+  <script>  
+      var obj = {
+        a: 1,
+        b: 2,
+        c: 3
+      };
+      // 单调乏味的重复"obj"
+      obj.a = 2;
+      obj.b = 3;
+      obj.c = 4;
+      // 简单的快捷方式
+      with (obj) {
+        a = 3;
+        b = 4;
+        c = 5;
+      }
+      console.log(obj.a,obj.b,obj.c)  //3 4 5
+
+      //***********************************************************
+      function foo(obj) {
+        with (obj) {
+          a = 2;
+        }
+      }
+      
+      var o = {
+        b: 3
+      };
+      
+      foo( o );
+      console.log( o.a ); // undefined
+      console.log( a );      // 2——不好，a 被泄漏到全局作用域上了！
+      console.log( window.a) // 2——不好，a 被泄漏到全局作用域上了！
+  </script>
+ 
+</body>
+</html>

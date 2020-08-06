@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>eval动态修改词法作用域</title>
+</head>
+<body>
+  <article>
+    <h3>eval(..) 在运行期修改书写期的词法作用域。</h3>
+    <p><pre><code>
+      function foo(str, a) {
+        eval( str ); // 欺骗！
+        console.log( a, b );
+      }
+      var b = 2;
+      foo( "var b = 3;", 1 ); // 1, 3
+    </code></pre></p>
+
+    <P>eval(..) 调用中的"var b = 3;" 这段代码会被当作本来就在那里一样来处理。由于那段代码声明了一个新的变量b，因此它对已经存在的foo(..) 的词法作用域进行了修改。<br>
+      这段代码实际上在foo(..) 内部创建了一个变量b，并遮蔽了外部（全局）作用域中的同名变量。</P>
+    <p>在这个例子中，为了展示的方便和简洁，我们传递进去的“代码”字符串是固定不变的。而在实际情况中，可以非常容易地根据程序逻辑动态地将字符<br>
+      拼接在一起之后再传递进去。eval(..) 通常被用来执行动态创建的代码，因为像例子中这样动态地执行一段固定字符所组成的代码，并没有比直接将代<br>
+      码写在那里更有好处。</p>
+  </article>
+
+  <h3>调用eval(..) 来使其运行在全局作用域中</h3>
+  <p><pre><code>
+    "use strict";
+    eval("var a = 2;console.log(a)");  //2
+    function foo(str) {
+      eval( str );
+      console.log( a ); // ReferenceError: a is not defined
+    }
+    foo( "var a = 2" );
+  </code></pre></p>
+
+  <p>
+    默认情况下，如果eval(..) 中所执行的代码包含有一个或多个声明（无论是变量还是函  <br>
+    数），就会对eval(..) 所处的词法作用域进行修改。技术上，通过一些技巧（已经超出我 <br>
+    们的讨论范围）可以间接调用eval(..) 来使其运行在全局作用域中，并对全局作用域进行 <br>
+    修改。但无论何种情况，eval(..) 都可以在运行期修改书写期的词法作用域。 <br>
+  </p>
+
+  <p>在现代浏览器中有两种编译模式：fast path和slow path。fast path是编译那些稳定和可预测（stable and predictable）的代码。<br>
+    而明显的，eval不可预测，所以将会使用slow path 在程序中动态生成代码的使用场景非常罕见，因为它所带来的好处无法抵消性能上的损失。</p>
+
+  <script>
+     /*function foo(str, a) {
+        eval( str ); // 欺骗！
+        console.log( a, b );
+      }
+      var b = 2;
+      foo( "var b = 3;", 1 ); // 1, 3
+      */
+
+
+    "use strict";
+    eval("var a = 2;console.log(a)");  //2
+    function foo(str) {
+      eval( str );
+      console.log( a ); // ReferenceError: a is not defined
+    }
+    foo( "var a = 2" );
+  </script>
+ 
+</body>
+</html>

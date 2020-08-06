@@ -21,23 +21,47 @@
 
   /*in JavaScript , having six primitive data types */
 
+  //变量是没有类型的,
+
   let message = 'hello';
-  console.log(typeof message +':'+ message.valueOf())  //string:hello
+  console.log(typeof message)  //string
 
   let flag = true;
-  console.log(typeof flag +':'+ flag.valueOf())  //boolean:true
+  console.log(typeof flag)  //boolean
 
   let num = 100;
-  console.log(typeof num +':'+ num.valueOf())  //number:100
+  console.log(typeof num)  //number
 
   let bg = 9007199254740992n;
-  console.log(typeof bg +':'+ bg.valueOf())  //bigint:9007199254740992
+  console.log(typeof bg)  //bigint
 
-  let b = undefined;
-  console.log(typeof b)  //undefined
+  let a ;
+  console.log(typeof a)  //undefined
+
+  let b = null;
+  console.log(typeof b)  //object   
+  
 
   let sym = Symbol("sym");
-  console.log(typeof sym +':'+ sym.description)  //symbol:sym
+  console.log(typeof sym)  //symbol
+
+  function doSomething() {
+    console.log('***************');
+  }
+
+  console.log(typeof doSomething);     //function
+
+  let seasons = ['spring','summer','autumn','winter'];
+
+  console.log(typeof seasons);     //object
+
+  let current = new Date();
+
+  console.log(typeof current);     //object
+
+  let re = /abc/;
+
+  console.log(typeof re);     //object
 
   </script>
 </body>

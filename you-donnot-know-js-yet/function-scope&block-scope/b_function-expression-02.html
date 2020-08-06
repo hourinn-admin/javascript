@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>函数的匿名与具名</title>
+  <style>
+    .left {
+        float: left;
+        width: 800px;
+        height: 100px;
+        background-color: gray;
+      }
+    .right {
+      background-color: gray;
+      margin-left: 850px;
+      height: 100px;
+    }
+    .code {
+        width: 800px;
+        height: 100px;
+        background-color: gray;
+      }
+  </style>
+</head>
+<body>
+  <article>
+    <h3>函数表达式可以是匿名的，而函数声明则不可以省略函数名</h3>
+    <p>观察几个典型匿名函数表达式：</p>
+    <div class="code">
+      <pre>
+        <code>
+          (function(){
+            var a = 3;
+            console.log( a );  //3
+          })(); 
+        </code>
+      </pre>
+    </div>
+    
+    <div class="code">
+      <pre>
+        <code>
+          setTimeout( function() {
+            console.log("I waited 1 second!");
+          }, 1000 ); 
+        </code>
+      </pre>
+    </div>
+   
+    
+    </article>
+    <script>
+     (function(){
+            var a = 3;
+            console.log( a );  //3
+      })();
+
+      setTimeout( function() {
+            console.log("I waited 1 second!");
+      }, 1000 ); 
+
+    </script>
+</body>
+</html>
