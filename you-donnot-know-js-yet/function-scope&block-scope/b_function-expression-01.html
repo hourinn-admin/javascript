@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>函数表达式</title>
+  <style>
+    .left {
+        float: left;
+        width: 800px;
+        height: 150px;
+        background-color: gray;
+      }
+    .right {
+      background-color: gray;
+      margin-left: 850px;
+      height: 150px;
+    }
+    .code {
+        width: 800px;
+        height: 150px;
+        background-color: gray;
+      }
+  </style>
+</head>
+<body>
+  <article>
+    <h3>经典函数定义与调用</h3>
+    <p>例如：</p>
+    <div class="code">
+      <pre>
+        <code>
+          var a = 2;
+          function foo() {    // <-- 添加这一行
+            var a = 3;
+            console.log( a );       // 3
+          }                   // <-- 以及这一行
+          foo();              // <-- 以及这一行
+          console.log( a );         //2
+        </code>
+      </pre>
+    </div>
+
+    <p>在任意代码片段外部添加包装函数，可以将内部的变量和函数定义“隐<br>
+      藏”起来，外部作用域无法访问包装函数内部的任何内容。</p>
+    <p>虽然这种技术可以解决一些问题，但是它并不理想，因为会导致一些额外的问题。首先，<br>
+      必须声明一个具名函数foo()，意味着foo 这个名称本身“污染”了所在作用域（在这个<br>
+      例子中是全局作用域）。其次，必须显式地通过函数名（foo()）调用这个函数才能运行其<br>
+      中的代码。</p>
+    <p>如果函数不需要函数名（或者至少函数名可以不污染所在作用域），并且能够自动运行，<br>
+      这将会更加理想。</p>
+    <h3>JavaScript 提供了能够同时解决上述两个问题的方案:函数表达式</h3>
+    <div class="left">
+      <pre>
+        <code>
+          var a = 2;
+          (function foo(){ // <-- 添加这一行
+            var a = 3;
+            console.log( a ); // 3
+          })(); // <-- 以及这一行
+          console.log( a ); // 2
+        </code>
+      </pre>
+    </div>
+    <div style="float: left;">或者</div>
+    <div class="right">
+      <pre>
+        <code>
+          var a = 2;
+          (function foo(){ // <-- 添加这一行
+            var a = 3;
+            console.log( a ); // 3
+          }()); // <-- 以及这一行
+          console.log( a ); // 2
+        </code>
+      </pre>
+    </div>
+    <p>包装函数的声明以(function... 而不仅是以function... 开始。尽管看上去这并不<br>
+      是一个很显眼的细节，但实际上却是非常重要的区别。函数会被当作函数表达式而不是一<br>
+      个标准的函数声明来处理。</p>
+
+
+    
+    </article>
+    <script>
+      var a = 2;
+      (function foo(){ // <-- 添加这一行
+        var a = 3;
+        console.log( a ); // 3
+      })(); // <-- 以及这一行
+      console.log( a ); // 2
+      
+      var a = 2;
+      (function foo(){ // <-- 添加这一行
+        var a = 3;
+        console.log( a ); // 3
+      }()); // <-- 以及这一行
+      console.log( a ); // 2
+      
+
+      
+
+    </script>
+</body>
+</html>

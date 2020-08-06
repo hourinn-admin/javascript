@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>全局变量</title>
+</head>
+<body>
+  <article>
+    <h3>全局变量会自动成为全局对象（比如浏览器中的window 对象）的属性</h3>
+    <p>全局变量会自动成为全局对象（比如浏览器中的window 对象）的属性，因此可以不直接通过全局变量的词法名称，而是间接地通过对全局对象属性的引用来对其进行访问。</p>
+
+  </article>
+
+  <script>
+     var a = "HELLO";    //全局变量
+     function foo() {
+       function bar(){
+         var a = "hello";
+         console.log(a);         //bar的作用域a变量覆盖全局变量
+         console.log(window.a);  //通过全局对象windows访问被覆盖的全局变量
+       }
+       bar();
+     }
+
+     foo();
+  </script>
+ 
+</body>
+</html>
