@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>块作用域</title>
+  <style>
+    .left {
+        float: left;
+        width: 800px;
+        height: 100px;
+        background-color: gray;
+      }
+    .right {
+      background-color: gray;
+      margin-left: 850px;
+      height: 100px;
+    }
+    .code {
+        width: 800px;
+        height: 100px;
+        background-color: gray;
+      }
+  </style>
+</head>
+<body>
+  <article>
+    <h3>关于块作用域,首先观察下面两段代码</h3>
+    <div class="left">
+      <pre>
+        <code>
+          for (var i=0; i<10; i++) {
+            console.log( i );
+          }
+        </code>
+      </pre>
+    </div>
+    <div style="float: left;"></div>
+    <div class="right">
+      <pre>
+        <code>
+          var foo = true;
+          if (foo) {
+            var bar = foo * 2;
+            bar = something( bar );
+            console.log( bar );
+          }
+        </code>
+      </pre>
+    </div>
+    <dl>
+      <dt>第一段代码:</dt>
+      <dd>在for 循环的头部直接定义了变量i,通常是因为只想在for 循环内部的上下文中使<br>
+        用i，但事实上i 会被绑定在外部作用域（函数或全局）中。</dd>
+      <dt>第二段代码:</dt>
+      <dd>bar 变量仅在if 声明的上下文中使用，因此如果能将它声明在if 块内部中会是一个很有<br>
+        意义的事情。但是，当使用var 声明变量时，它写在哪里都是一样的，因为它们最终都会<br>
+        属于外部作用域。这段代码是为了风格更易读而伪装出的形式上的块作用域，如果使用这<br>
+        种形式，要确保没在作用域其他地方意外地使用bar 只能依靠自觉性。</dd>
+    </dl>
+
+    <dl>
+    <dt><b>如果上述代码存在块作用域</b></dt>
+    <dd>可以避免在作用范围外意外地使用（或复用）某些变量，如果在错误的地方使用变量将导致未知变量的异常。<br>
+      变量i 的块作用域（如果存在的话）将使得其只能在for 循环内部使用，如果在函数中其他地方使用会导致错误。<br>
+      这对保证变量不会被混乱地复用及提升代码的可维护性都有很大帮助。</dd>
+    </dl>
+
+    <p><b>块作用域是一个用来对之前的最小授权原则进行扩展的工具，将代码从在函数中隐藏信息扩展为在块中隐藏信息。</b><br>
+      但可惜，表面上看JavaScript 并没有块作用域的相关功能。除非你更加深入地研究(with&try/catch)</p>
+    
+   
+    
+    </article>
+    <script>
+     
+
+    </script>
+</body>
+</html>

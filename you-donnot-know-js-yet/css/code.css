@@ -1,0 +1,17 @@
+.left {
+    float: left;
+    width: 800px;
+    height: 150px;
+    background-color: gray;
+  }
+.right {
+  background-color: gray;
+  margin-left: 850px;
+  height: 150px;
+}
+.code {
+    width: 800px;
+    height: 150px;
+    background-color: gray;
+  }
+
