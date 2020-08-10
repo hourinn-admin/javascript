@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>let</title>
+  <link rel="stylesheet" href="../css/code.css">
+  </style>
+</head>
+<body>
+  <article>
+    <p>ES6 改变了现状，引入了新的let 关键字，提供了除var 以外的另一种变量声明方式<br>
+      let 关键字可以将变量绑定到所在的任意作用域中（通常是{ .. } 内部）,在块中使用let声明的变量将隐式的生成一个块作用域</p>
+    <p>如下所示：</p>
+    <div class="left">
+      <pre>
+        <code>
+          if(true){
+            let bar = 2;                                    //将变量bar附加在if{}上,从而形成一个块作用域
+            console.log(bar);
+          }
+          console.log( bar ); // ReferenceError
+        </code>
+      </pre>
+    </div>
+    <div style="float: left;">等价于</div>
+    <div class="right">
+      <pre>
+        <code>
+          {                         //显示的传建块作用域
+            let bar = 2;
+            console.log(bar);
+          }
+          console.log( bar ); // ReferenceError
+        </code>
+      </pre>
+    </div>
+    <p>在上面右边例子中，我们在if 声明内部显式地创建了一个块<br>
+      <b>为块作用域显式地创建块可以部分解决这个问题，使变量的附属关系变得更加清晰。</b></p>
+   
+    
+    </article>
+    <script>
+
+    if(true){
+      let bar = 2;
+      console.log(bar);
+    }
+    console.log( bar );// ReferenceError
+    </script>
+</body>
+</html>

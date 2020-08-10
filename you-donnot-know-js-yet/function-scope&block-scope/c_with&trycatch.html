@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>块作用域的两个例子:with与try/catch</title>
+  <link rel="stylesheet" href="../css/code.css">
+  </style>
+</head>
+<body>
+  <article>
+    <h4>块作用域的两个例子:with与try/catch</h4>
+    <p><b>with</b></p>
+    <div class="code">
+      <pre>
+        <code>
+          with(obj){
+            a:3;
+            b:4;
+            c:5;
+          }    
+          console.log(obj);    // ReferenceError:obj is not defined
+        </code>
+      </pre>
+    </div>
+    <p>with 关键字。它不仅是一个难于理解的结构，同时也是块作用域的一个例子（块作用域的一种形式）<br>
+      ，用with 从对象中创建出的作用域仅在with 声明中而非外部作用域中有效。<br>
+      with 可以将一个没有或有多个属性的对象处理为一个完全隔离的词法作用域，这个对象的属性也会被处理为定义在这个作用域中的词法标识符。<br>
+    </p>
+    <p><b>try/catch</b></p>
+    <div class="code">
+      <pre>
+        <code>
+          try {
+            undefined(); // 执行一个非法操作来强制制造一个异常
+          }
+          catch (err) {
+            console.log( err ); // 能够正常执行！
+          }
+          console.log( err ); // ReferenceError:err is not defined
+        </code>
+      </pre>
+    </div>
+    
+    <p>非常少有人会注意到JavaScript 的ES3 规范中规定try/catch 的catch 分句会创建一个块作<br>
+      用域，其中声明的变量仅在catch 内部有效。</p>
+    
+   
+    
+    </article>
+    <script>
+    with(obj){
+      a:3;
+      b:4;
+      c:5;
+    }    
+    console.log(obj);    // ReferenceError:obj is not defined
+    
+
+    try {
+      undefined(); // 执行一个非法操作来强制制造一个异常
+    }
+    catch (err) {
+      console.log( err ); // 能够正常执行！
+    }
+    console.log( err ); // ReferenceError:err is not defined
+
+    </script>
+</body>
+</html>
