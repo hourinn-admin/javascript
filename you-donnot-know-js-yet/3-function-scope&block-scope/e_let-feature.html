@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>let的一些特征</title>
+  <link rel="stylesheet" href="../css/code.css">
+  </style>
+</head>
+<body>
+  <article>
+    <h4>1.let进行的声明不会在其所在块作用域中进行提升</h4>
+    <div class="left">
+      <pre>
+        <code>
+          if(true){
+            console.log(bar);   //ReferenceError: Cannot access 'bar' before initialization
+            let bar = "hello";                                    
+          }
+        </code>
+      </pre>
+    </div>
+    <div style="float: left;">or</div>
+    <div class="right">
+      <pre>
+        <code>
+          function foo(){
+            console.log(bar);  //ReferenceError: Cannot access 'bar' before initialization
+            let bar = "hello";   
+          }
+          foo();
+        </code>
+      </pre>
+    </div>
+    <p>以后会详细讨论提升,提升是指声明会被视为存在于其所出现的作用域的整个范围内。</p>
+   
+    </article>
+    <script>
+    /*if(true){
+      console.log(bar);   //ReferenceError: Cannot access 'bar' before initialization
+      let bar = "hello";                                    
+    }*/
+
+    function foo(){
+      console.log(bar);  //ReferenceError: Cannot access 'bar' before initialization
+      let bar = "hello";   
+    }
+    foo();
+    </script>
+</body>
+</html>

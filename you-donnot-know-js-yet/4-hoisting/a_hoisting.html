@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>提升初体验</title>
+  <link rel="stylesheet" href="../css/code.css">
+  </style>
+</head>
+<body>
+  <article>
+    <h4>什么是提升？首先观察下面两段代码的输出</h4>
+    <div class="left">
+      <pre>
+        <code>
+          a = 2;
+          var a;
+          console.log( a );
+        </code>
+      </pre>
+    </div>
+    <div style="float: left;"></div>
+    <div class="right">
+      <pre>
+        <code>
+          console.log( a );
+          var a = 2;
+        </code>
+      </pre>
+    </div>
+    <p>左边输出2,右边会抛出ReferenceError异常,<span style="font-family:Simsun">到底发生了什么？</span></p>
+
+    <h4>编译器再度来袭</h4>
+    <p>编译器的一部分工作就是找到所有的声明，并且用合适的作用域将它们关联起来(第二章词法作用域的核心内容)</p>
+    <p>正确的思考思路是，包括变量和函数的在内的所有声明都会在任何代码被执行前首先被处理</p>
+    <p>当你看到var a = 2; 时，可能会认为这是一个声明。但JavaScript 实际上会将其看成两个<br>
+      声明：var a; 和a = 2;。第一个定义声明是在编译阶段进行的。第二个赋值操作会被留在<br>
+      原地等待执行阶段。</p>
+    <h4>上面两段代码的实际处理形式</h4>
+    <div class="left">
+      <pre>
+        <code>
+          var a;              //变量声明被提升
+          a = 2;
+          console.log( a );
+        </code>
+      </pre>
+    </div>
+    <div style="float: left;"></div>
+    <div class="right">
+      <pre>
+        <code>
+          var a;
+          console.log( a );
+          a = 2;              //赋值操作留在原地
+        </code>
+      </pre>
+    </div>
+    <pre style="font-size:16px">结论：变量和函数声明从它们在代码中出现的位置被“移动”到了最上面。这个过程就叫作提升。<br>
+      只有声明本身会被提升，而赋值或其他运行逻辑会留在原地。</pre>
+   
+    </article>
+    <script>
+    
+    </script>
+</body>
+</html>
