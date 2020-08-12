@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>每个作用域都会进行提升操作</title>
+  <link rel="stylesheet" href="../css/code.css">
+  </style>
+</head>
+<body>
+  <article>
+    <h4>每个作用域都会进行提升操作</h4>
+    <p>在前面的代码片段中,只包含全局作用域,而事实上,提升操作存在与所有作用域中</p>
+    <div class="left">
+      <pre>
+        <code>
+          foo();
+
+          function foo(){
+            console.log( a );
+            var a = 2;
+          }
+        </code>
+      </pre>
+    </div>
+    <div style="float: left;">提升后</div>
+    <div class="right">
+      <pre>
+        <code>
+          function foo(){
+            var a;
+            console.log( a );   // undefined
+            a = 2;
+          }
+
+          foo();
+        </code>
+      </pre>
+    </div>
+    <p>虽然函数可以被提升,但是函数表达式却不会别提升</p>
+    <div class="left">
+      <pre>
+        <code>
+          foo();        
+                 
+          var foo = function(){
+            console.log("i can't be hoisted");
+          }
+          
+        </code>
+      </pre>
+    </div>
+    <div style="float: left;">提升后</div>
+    <div class="right">
+      <pre>
+        <code>
+          var  foo;
+
+          foo();                //typeError: foo is not a function
+
+          foo = function(){
+            console.log("i can't be hoisted");
+          }
+        </code>
+      </pre>
+    </div>
+    <p>进一步引申,上面的例子是匿名的函数表达式,那么具名的函数表达式呢</p>
+    <div class="left">
+      <pre>
+        <code>
+          foo();        
+          var foo = function bar(){
+            console.log("i can't be hoisted");
+          }
+          bar();
+        </code>
+      </pre>
+    </div>
+    <div style="float: left;">提升后</div>
+    <div class="right">
+      <pre>
+        <code>
+          var  foo;
+          foo();         //typeError: foo is not a function
+          foo = function(){
+            var bar = ...self...
+            console.log("i can't be hoisted");
+          }
+          bar();         //ReferenceError: bar is not defined
+        </code>
+      </pre>
+    </div>
+    <p>具名的bar函数名称,实际会被理解为一个function作用域的一个引用自身的变量,从中可以看出给函数表达式命令除了提高代码的可读性外似乎用处不大</p>
+    </article>
+    <script>
+      /*foo();               
+      var foo = function(){
+        console.log("i can't be hoisted");
+      }*/
+
+      var foo = function bar(){
+        console.log("i can't be hoisted");
+      }
+      bar(); //ReferenceError: bar is not defined
+
+      
+    </script>
+</body>
+</html>

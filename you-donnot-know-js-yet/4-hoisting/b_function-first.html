@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>提升:函数优先</title>
+  <link rel="stylesheet" href="../css/code.css">
+  </style>
+</head>
+<body>
+  <article>
+    <h4>函数会首先被提升</h4>
+    <p>函数声明和变量声明都会被提升,但是函数会首先被提升,然后才是变量</p>
+    考虑以下代码：
+    <div style="width:800px;height: 180px;background-color: gray;" >
+      <pre>
+        <code>
+          foo();       // 2
+
+          var foo;
+
+          function foo(){
+            console.log(1);
+          }
+
+          function foo(){
+            console.log(2);
+          }
+        </code>
+      </pre>
+    </div>
+    这个代码片段会被引擎理解为如下形式：
+    <div style="width:800px;height: 180px;background-color: gray;" >
+      <pre>
+        <code>
+          function foo(){
+            console.log(2);
+          }
+
+          foo();       // 2
+        </code>
+      </pre>
+    </div>
+    <p>var foo 尽管出现在function foo()... 的声明之前,因为函数声明会被提升到普通变量之前,并且有相同的名字foo,所有被视作重复的声明（因此被忽略）,<br>
+      同时在后面的foo函数声明还可以覆盖前面的foo函数声明,因此输出2</p>
+
+    <pre>※1.javascript中如果在同一个作用域出现相同名字的声明(不论函数还是变量),后面出现的声明都将被忽略<br>
+  2.如果在嵌套的作用域中,子作用域中出现与父作用域相同名字的声明,则会覆盖父作用域中的声明</p>
+    
+    </article>
+    <script>
+      var bar = 2;
+      var bar;
+
+      console.log(bar);
+      
+      
+    </script>
+</body>
+</html>
