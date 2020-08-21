@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>闭包与循环</title>
+  <link rel="stylesheet" href="../css/code.css">
+  </style>
+</head>
+<body>
+  <article>
+    <h4>平时写的代码中闭包的身影</h4>
+    
+    <div class="code">
+      <pre>
+        <code>
+          function wait(message) {
+
+            setTimeout( function timer() {
+              console.log( message );
+            }, 1000 );
+
+          }
+
+          wait( "Hello, closure!" );
+        </code>
+      </pre>
+    </div>
+
+    
+   
+    </article>
+    <script>
+       for(var i=0;i<=5;i++){
+         setTimeout(function timer(){
+           console.log(i);
+         },0)
+       }
+    </script>
+</body>
+</html>

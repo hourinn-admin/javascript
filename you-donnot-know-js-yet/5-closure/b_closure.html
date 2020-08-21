@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>函数传递</title>
+  <link rel="stylesheet" href="../css/code.css">
+  </style>
+</head>
+<body>
+  <article>
+    
+    
+    <h4>函数在定义时的词法作用域以外的地方被调用。闭包使得函数可以继续访问定义时的词法作用域。</h4>
+    直接传递：
+    <div style="width:800px;height:200px;background-color: gray;">
+      <pre>
+        <code>
+          function foo() {
+            var a = 2;
+            function baz() {
+              console.log( a ); // 2
+            }
+            bar( baz );  //baz传递给bar
+          }
+
+          function bar(fn) {    
+            fn();   
+          }
+        </code>
+      </pre>
+    </div>
+    间接传递：
+    <div style="width:800px;height:250px;background-color: gray;">
+      <pre>
+        <code>
+          var fn;
+
+          function foo() {
+            var a = 2;
+            function baz() {
+              console.log( a );
+            }
+            fn = baz; // 将baz 分配给全局变量
+          }
+
+          function bar() {
+            fn(); 
+          }
+
+          foo();
+          bar(); // 2
+        </code>
+      </pre>
+    </div>
+
+    <p>无论通过何种手段将内部函数传递到所在的词法作用域以外，它都会持有对原始定义作用<br>
+      域的引用，无论在何处执行这个函数都会使用闭包。</p>
+    
+   
+    </article>
+    <script>
+    
+    </script>
+</body>
+</html>

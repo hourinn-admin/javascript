@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>无处不在的闭包</title>
+  <link rel="stylesheet" href="../css/code.css">
+  </style>
+</head>
+<body>
+  <article>
+    <h4>平时写的代码中闭包的身影</h4>
+    
+    <div class="code">
+      <pre>
+        <code>
+          function wait(message) {
+
+            setTimeout( function timer() {
+              console.log( message );
+            }, 1000 );
+
+          }
+
+          wait( "Hello, closure!" );
+        </code>
+      </pre>
+    </div>
+
+    <p>将一个内部函数（名为timer）传递给setTimeout(..)。timer 具有涵盖wait(..) 作用域<br>
+      的闭包，因此还保有对变量message 的引用。</p>
+    <p>wait(..) 执行1000 毫秒后，它的内部作用域并不会消失，timer 函数依然保有wait(..)<br>
+      作用域的闭包。</p>
+    <p>在引擎内部，内置的工具函数setTimeout(..) 持有对一个参数的引用，这个参数也许叫作<br>
+      fn 或者func，或者其他类似的名字。引擎会调用这个函数，在例子中就是内部的timer 函<br>
+      数，而词法作用域在这个过程中保持完整。</p>
+
+    
+    <div style="width:800px;height:150px;background-color: gray;">
+      <pre>
+        <code>
+          function setupBot(name, selector) {
+              $( selector ).click( function activator() {
+                console.log( "Activating: " + name );
+              } );
+          }
+
+          setupBot( "Closure Bot 1", "#bot_1" );
+          setupBot( "Closure Bot 2", "#bot_2" );
+        </code>
+      </pre>
+    </div>
+
+    <p>本质上无论何时何地，如果将（访问它们各自词法作用域的）函数当作第一<br>
+级的值类型并到处传递，你就会看到闭包在这些函数中的应用。在定时器、事件监听器、<br>
+Ajax 请求、跨窗口通信、Web Workers 或者任何其他的异步（或者同步）任务中，只要使<br>
+用了回调函数，实际上就是在使用闭包！</p>
+    
+   
+    </article>
+    <script>
+       function wait(message){
+         setTimeout(function timer(){
+           console.log(message);
+         },1000)
+       }
+
+       wait("hello, closure");
+    </script>
+</body>
+</html>
