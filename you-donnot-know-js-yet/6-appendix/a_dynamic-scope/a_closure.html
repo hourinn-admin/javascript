@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>动态作用域</title>
+  <link rel="stylesheet" href="../../css/code.css">
+  </style>
+</head>
+<body>
+  <article>
+    
+    <h4>javascript中的作用域</h4>首先要明确的是javascript的作用域是词法作用域， 在第二章中，介绍了词法作用域，详细参照：a_词法作用域.xml<br>
+      但是需要明白动态作用域与词法作用域的区别，同时Javascript另一个重要机制this某种程度上很像动态作用域。
+    </p>
+
+    <p>观察下面一段代码：</p>
+    <div class="code">
+      <pre>
+        <code>
+          function foo() {
+            console.log( a ); // 2
+           }
+           function bar() {
+             var a = 3;
+             foo();
+           }
+           var a = 2;
+           bar();
+        </code>
+      </pre>
+    </div>
+
+    <p>词法作用域让foo() 中的a 通过RHS 引用到了全局作用域中的a，因此会输出2。</p>
+
+    <p>词法作用域是一套关于引擎如何寻找变量以及会在何处找到变量的规则,最重要的特征是它的定义过程发生在代码的书写阶段<br>
+        而动态作用域并不关心函数和作用域是如何声明以及在何处声明的，只关心它们从何处调用。换句话说，作用域链是基于调用栈的，而不是代码中的作用域嵌套。<br>
+        因此，如果JavaScript 具有动态作用域，理论上，下面代码中的foo() 在执行时将会输出3。</p>
+
+    <p>为什么会这样？因为当foo() 无法找到a 的变量引用时，会顺着调用栈在调用foo() 的地方查找a，而不是在嵌套的词法作用域链中向上查找。<br>
+      由于foo() 是在bar() 中调用的，引擎会检查bar() 的作用域，并在其中找到值为3 的变量a。</p>
+
+    <p><b>主要区别：词法作用域是在写代码或者说定义时确定的，而动态作用域是在运行时确定
+      的。（this 也是！）词法作用域关注函数在何处声明，而动态作用域关注函数从何处调用。</b></p>
+    
+   
+    </article>
+    <script>
+        function foo() {
+         console.log( a ); // 2
+        }
+        function bar() {
+          var a = 3;
+          foo();
+        }
+        var a = 2;
+        bar();
+    </script>
+</body>
+</html>
