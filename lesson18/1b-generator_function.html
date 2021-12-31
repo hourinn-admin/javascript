@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>generator function</title>
+</head>
+<script>
+    
+    function* infinite(){
+      let i = 0;
+      while(true){
+        yield i++;
+      }
+    }
+
+    const list = infinite();
+
+    console.log(list.next().value);
+    console.log(list.next().value);
+    console.log(list.next().value);
+
+
+    function take(gen,count){
+      return Array(count).fill(1).map(
+        () => gen.next().value
+      );
+    }
+
+    console.log(take(infinite(),7));
+
+    
+
+</script>
+<body>
+
+    
+</body>
+</html>

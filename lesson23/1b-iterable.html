@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<script>
+    
+    let fruits = ["apple","orange","banana"];
+
+    for(const fruit in fruits) {
+      console.log(fruit);
+    }
+
+    for(const fruit of fruits){
+      console.log(fruit)
+    }
+
+    let person = {name:"zpl",age:28};
+
+    for(const field in person){
+      console.log(field);
+    }
+
+    for(const item in "ABC"){
+      console.log(item);
+    }
+
+    for(const item of "ABC"){
+      console.log(item);
+    }
+
+    function* yieldAll(...values){
+      for(const val of values){
+        yield val;
+      }
+    }
+
+    let yieldObj = yieldAll("A","B","C");
+
+    console.log(yieldObj.next().value);
+    console.log(yieldObj.next().value);
+    console.log(yieldObj.next().value);
+
+    
+
+    
+
+
+</script>
+<body>
+   
+    
+</body>
+</html>

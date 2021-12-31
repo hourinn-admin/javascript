@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Object.assign</title>
+</head>
+<script>
+   const baseSpaceShip = {
+       fly:function(){
+         console.log("fly");
+       },
+       shoot:function(){
+         console.log("shoot");
+       },
+       destory:function(){
+         console.log("destory");
+       }
+   }
+
+  function enhancedSpaceShip(enhancements){
+    return  Object.assign({},baseSpaceShip,enhancements);
+  }
+
+  function createBomberSpaceShip(){
+    return enhancedSpaceShip({
+      bomb:function(){
+        console.log("bomb");
+      }
+    })
+  }
+
+  function createStealthSpaceShip(){
+    return enhancedSpaceShip({
+      stealth: function(){
+        console.log("stealth");
+      }
+    })
+  }
+
+  let bomber = createBomberSpaceShip();
+  bomber.fly();
+  bomber.bomb()
+
+  let stealthship = createStealthSpaceShip();
+  stealthship.stealth();
+  stealthship.shoot();
+</script>
+<body>
+    
+    
+</body>
+</html>

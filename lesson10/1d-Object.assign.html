@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Object.assign</title>
+</head>
+<script>
+
+  let person = {
+    __name:"JD",
+    get name(){
+      return this.__name;
+    },
+
+    set name(newName){
+      if(newName.includes(" ")){
+        throw new Error("No spaces allowed");
+      }else{
+        this.__name = newName;
+      }
+    }
+  }
+
+  Object.assign(person,{name:"JD Isaacks"});
+
+
+
+
+</script>
+<body>
+    
+    
+</body>
+</html>

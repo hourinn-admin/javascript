@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>map</title>
+</head>
+<script type="module">
+
+
+  const map = new Map();
+
+  const obj = {aaa:123};
+
+  map.set(obj,"obj");
+
+  console.log(map.has(obj));
+
+  console.log(map.has({aaa:123}));
+
+  console.log(obj === {aaa:123});
+
+  console.log("object" === "object");
+
+  const obj2 = {};
+  obj2[obj] = "new object";
+
+  console.log(Object.keys(obj2));
+
+  console.log(obj2);
+  
+</script>
+<body>
+    
+</body>
+</html>

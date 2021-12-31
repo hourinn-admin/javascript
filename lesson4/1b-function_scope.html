@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>function scope</title>
+</head>
+
+<body>
+    
+    <ul>
+      <li>one</li>
+      <li>two</li>
+      <li>three</li>
+      <li>four</li>
+      <li>five</li>
+    </ul>
+
+    <script>
+
+      (function(){
+       if(true){
+         var foo = "bar";
+       }
+       console.log(foo);
+      }())
+
+
+   
+      var items = document.querySelectorAll("li");
+   
+      for(var i = 0; i< items.length ; i++){
+        console.log(i);
+        var item = items[i];
+        item.addEventListener('click',function(){
+              console.log(i);
+              alert(item.textContent + ":" + i);
+        });
+      }
+
+
+      var read,write;
+      (function(){
+        var data = {};
+        
+        read = function(key){
+          return data[key];
+        }
+
+        write = function(key,val){
+          data[key] = val;
+        }
+
+      }())
+
+      write("name","zpl");
+      console.log(read("name"));
+      console.log(data)   //ReferenceError
+   </script>
+</body>
+</html>

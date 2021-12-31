@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<script>
+    
+    let cart = ["iphone","ipad","macbook"];
+
+    function addItemToCart(item){
+      return [...cart,item];
+    }
+
+    let newCart = addItemToCart("iwatch");
+
+    console.log(cart);
+    
+    console.log(newCart);
+
+    const addItemToCart1 = item => [...cart,item];
+
+    const newCart1 = addItemToCart1("macair");
+
+    console.log(newCart1);
+
+    function addItemToCart2(item){
+      const newCart = cart.slice(0);
+      newCart.push(item);
+      return newCart;
+    }
+
+</script>
+<body>
+   
+    
+</body>
+</html>

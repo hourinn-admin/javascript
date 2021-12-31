@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<script>
+   
+   function approvalsChart(ratings,state,width,height = width/2){
+        if(!state) console.log("Make A Rating Graph ALL");
+        else console.log(`Make A Rating Graph OF ${state}`);
+    }
+    
+    const chartManager = {
+      getRatings(){
+        return [
+          {
+            state:"georgia",
+            data:{}
+          },
+          {
+            state:"newyork",
+            data:{}
+          },
+          {
+            state:"fororida",
+            data:{}
+          }
+        ]
+      },
+
+      nationalRatings(){
+          return approvalsChart(this.getRatings);
+      },
+
+      stateRatings(state,ratings = this.getRatings()){
+          const stateRating = ratings.filter(rating => {
+            rating.state === state
+          });
+
+          return approvalsChart(stateRating,state,400);
+      },
+
+      stateAndNationalRatings(state){
+        const ratings = this.getRatings();
+        const nationalChart = this.nationalRatings(ratings);
+        const stateChart = this.stateRatings(state);
+
+        return {nationalChart,stateChart};
+      }
+    }
+
+    const charts = chartManager.stateAndNationalRatings("fororida");
+
+</script>
+<body>
+    
+    
+</body>
+</html>

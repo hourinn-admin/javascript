@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>iterator</title>
+</head>
+<script>
+   
+
+  function primesIterartor(){
+    const primes = [2,3,5];
+    return {
+      next(){
+        const value = primes.shift();
+        const done = !value;
+        return {
+          value,done
+        };
+      }
+    };
+  }
+
+  const primesIterable = {
+    [Symbol.iterator] : primesIterartor
+  }
+
+  console.log([...primesIterable]);
+
+
+
+</script>
+<body>
+    
+
+</body>
+</html>

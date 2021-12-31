@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>default parameter</title>
+</head>
+<script>
+  function range(min = 0,max){
+     console.log(min,max);
+   }
+
+   range(5);
+   range(5,10);
+   range(undefined,10);
+
+   function range2(max,min = 0){
+     console.log(min,max);
+   }
+
+   range2(10);
+
+    
+</script>
+<body>
+    
+    
+</body>
+</html>

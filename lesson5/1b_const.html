@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>when to use const</title>
+</head>
+<script>
+  
+    const ADD_ITEM = "ADD_ITEM";
+    const DEL_ITEM = "DEL_ITEM";
+    const CLEAR_ALL = "CLEAR_ALL";
+
+    const items = [];
+
+    function actionHandler(action){
+      switch(action.type){
+        case ADD_ITEM:
+          items.push(action.item);
+          break;
+        case DEL_ITEM:
+          items.splice(items.indexOf(action.item),1);
+          break;
+        case CLEAR_ALL:
+          items.splice(0,items.length);
+          break;
+      }
+    }
+
+    let action = {
+      type:"ADD_ITEM",
+      item:"bar"
+    };
+
+    actionHandler(action);
+    actionHandler(action);
+    actionHandler(action);
+
+    console.log(items);
+
+</script>
+<body>
+    
+    
+</body>
+</html>

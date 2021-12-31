@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>global symbol</title>
+</head>
+<script>
+    
+    const baseSpaceShip = {
+      fly:function(){
+         console.log("fly");
+       },
+       shoot:function(){
+         console.log("shoot");
+       },
+       destory:function(){
+         console.log("destory");
+       },
+
+       [Symbol.for("weapon")]:{
+        fire(){
+          console.log("default fire");
+        }
+       },
+
+       fire(){
+         const weapon = this[Symbol.for("weapon")];
+         weapon.fire();
+       }
+    }
+
+    function enhancedSpaceShip(enhancements){
+      return Object.assign({},baseSpaceShip,enhancements);
+    }
+
+    const bomberSpaceShip = Object.assign({},baseSpaceShip,{[Symbol.for("weapon")]:{
+      fire(){
+        console.log("fire bomber");
+      }
+    }});
+
+    console.log(bomberSpaceShip);
+
+    bomberSpaceShip.fire();
+
+    baseSpaceShip.fire();
+
+    console.log(Symbol.for("aaa") === Symbol.for("aaa"));
+
+    console.log(bomberSpaceShip[Symbol.for("weapon")].fire);
+    
+
+    
+
+
+    
+
+
+</script>
+<body>
+    
+    
+</body>
+</html>

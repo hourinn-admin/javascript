@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>simple object literal</title>
+</head>
+<script>
+   
+
+   const stateManager = {
+     __count : 0,
+     getState : function (){
+       return Object.assign({},{count:this.__count});
+     },
+     update : function(state){
+       this.__count = state.count;
+     }
+   }
+   
+   function incrementCount(amount){
+     let {count} = stateManager.getState();
+
+     count += amount;
+
+     stateManager.update({count});
+
+   }
+
+   incrementCount(5);
+   incrementCount(10);
+
+   console.log(stateManager.getState());
+
+   
+   
+</script>
+<body>
+    
+    
+</body>
+</html>

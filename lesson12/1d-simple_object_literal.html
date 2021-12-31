@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>simple object literal</title>
+</head>
+<script>
+
+   const fibonacci = {
+     at(n){
+       if(n<=2) return 1;
+       return this.at(n-1) + this.at(n-2);
+     }
+   }
+
+   const {at} = fibonacci;
+   console.log(at);
+   
+   const fib = {at};
+   console.log(fib);
+
+   console.log(fibonacci.at(7));
+   //console.log(at(7));
+   console.log(fib.at(7));
+
+   const nacci = {find:at};
+   console.log(nacci);
+   console.log(nacci.at(7));
+   
+</script>
+<body>
+    
+    
+</body>
+</html>

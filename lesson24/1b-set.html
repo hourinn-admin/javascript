@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<script>
+    
+    let mySet = new Set("ABCDE");
+
+    mySet.add("F");
+
+    for(const key of mySet){
+      console.log(key);
+    }
+
+    console.log("************************");
+
+    mySet.delete("E");
+
+
+    for(const key of mySet){
+      console.log(key);
+    }
+
+    console.log("************************");
+
+    console.log([...mySet].pop());
+
+
+    console.log("************************");
+
+
+    console.log([...mySet]);
+
+    console.log("************************");
+
+
+
+    const arr = ["A","B","C","D","E"];
+
+    arr.push("F");
+
+    for(const value of arr){
+      console.log(value);
+    }
+
+    console.log("************************");
+
+    arr.pop();
+
+    for(const value of arr){
+      console.log(value);
+    }
+
+    console.log("************************");
+
+    arr.shift()
+
+    for(const value of arr){
+      console.log(value);
+    }
+
+    
+
+
+</script>
+<body>
+   
+    
+</body>
+</html>

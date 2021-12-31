@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>rest parameter</title>
+</head>
+<script>
+   
+   function family(wife,...kids){
+     console.log(`You are married to ${wife} with ${kids.length} kids`);
+   }
+
+   family("chenchen","kids1","kids2");
+
+   function cssClass(primary,...others){
+     const names = others.reduce((list,other) => {
+       return list.concat(`${primary}-${other}`)},[primary]);
+     return names.join(" ");
+   }
+
+   console.log(cssClass("button","danger","medium"));
+
+</script>
+<body>
+    
+    
+</body>
+</html>

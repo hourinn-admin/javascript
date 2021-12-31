@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>array to html</title>
+</head>
+<script>
+     const fruits = ["apple","orange","banana"];
+
+     const list = expand`<li>${fruits}</li>`;
+
+     console.log(list);
+
+     function expand(parts,items){
+       const start = parts[0];
+       const end = parts[1];
+
+       return items.map(function(item){
+          return start + item + end;
+       }).join("\n");
+     }
+</script>
+<body>
+    
+    
+</body>
+</html>

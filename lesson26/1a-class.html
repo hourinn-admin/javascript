@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<script>
+    const obj = {};
+
+    console.log(Object.getPrototypeOf(obj));
+    console.log(obj.__proto__);
+
+    console.log(typeof obj.__proto__);
+
+    console.log("**************************************")
+
+    const array = [];
+
+    console.log(array.__proto__);
+    console.log(array.__proto__.__proto__);
+
+    console.log(array.__proto__.__proto__ === obj.__proto__);
+
+    console.log("**************************************")
+
+</script>
+<body>
+   
+    
+</body>
+</html>

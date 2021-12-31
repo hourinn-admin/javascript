@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>array parameter split</title>
+</head>
+<script>
+  const fileA  = {};
+  const fileB = {};
+
+  function diff(fileA,fileB){
+    const inserted = "inserted";
+    const deleted = "deleted";
+    const modified = "modified";
+    return  [inserted,deleted,modified];
+  }
+
+  function visualize1(inserted,deleted,modified){
+    console.log(`visualize1:${inserted}#${deleted}#${modified}`);
+  }
+  const [inserted,deleted,modified] = diff(fileA,fileB)
+  visualize1(inserted,deleted,modified);
+
+  function visualize2(diff){
+    const inserted = diff[0];
+    const deleted = diff[1];
+    const modified = diff[2];
+    console.log(`visualize2:${inserted}#${deleted}#${modified}`);
+  }
+  visualize2(diff(fileA,fileB));
+
+  function visualize3(diff){
+    const [inserted,deleted,modified] = diff;
+    console.log(`visualize3:${inserted}#${deleted}#${modified}`);
+  }
+  visualize3(diff(fileA,fileB));
+
+  function visualize4([inserted,deleted,modified] ){
+    console.log(`visualize4:${inserted}#${deleted}#${modified}`);
+  }
+  visualize4(diff(fileA,fileB));
+
+</script>
+<body>
+    
+    
+</body>
+</html>

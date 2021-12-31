@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>variable shadowing</title>
+</head>
+<script>
+
+  var foo = "bar";
+  function echo(){
+    var foo = "bee";
+    console.log(foo);
+  }
+  echo();
+
+  var words = ["variable","shadowing"];
+  for(var i = 0;i<words.length;i++){
+    var word = words[i];
+    for(var i = 0;i < word.length;i++){
+      var char = word[i];
+      console.log(char);
+    }
+  }
+</script>
+<body>
+    
+    
+
+    
+</body>
+</html>

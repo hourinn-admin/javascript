@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<script>
+
+  class A{
+    static url = "url";
+    static getUrl(){
+      return this.url; 
+    }
+    print(){
+      ajax(this.url,this.echo)
+    }
+    echo(msg){
+      console.log(msg)
+    }
+  }
+
+  const a = new A();
+
+</script>
+<body>
+   
+    
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>startWith endWith includes</title>
+</head>
+<script>
+  let price = "$499";
+  if(price.startsWith("$")){
+
+  }
+
+  let str = "foo-bar";
+  console.log(str.startsWith("foo"));
+  console.log(str.endsWith("bar"));
+  console.log(str.includes("o-b"));
+
+  console.log(str.startsWith("Foo"));
+
+  let  locationA = "Atlanta, Ga";
+  let  locationB = "Galveston, Tx";
+
+  console.log(locationA.includes("Ga"));
+  console.log(locationB.includes("Ga"));
+
+  console.log(locationA.includes("Ga",locationA.indexOf(" ")));
+  console.log(locationB.includes("Ga",locationA.indexOf(" ")));
+
+  let 温度 = {icon:"20-night"};
+  let 湿度 = {icon:"35%-night"};
+  let 風速 = {icon:"4m/s-day"};
+
+  let weatherObjs = [温度,湿度,風速];
+  
+  
+  let isNightIcons = weatherObjs.filter(function(weather){
+    return weather.icon.includes("-night");
+  })
+
+  console.log(isNightIcons);
+
+
+</script>
+<body>
+    
+    
+</body>
+</html>

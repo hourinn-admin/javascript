@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>module</title>
+</head>
+<script type="text/javascript">
+
+  "use strict";
+
+  {
+    function statsHelper(){
+      console.log("statsHelper ");
+    }
+
+    window.logStats = function(stat){
+        statsHelper();
+        console.log("data to database");
+    }
+  }
+
+  console.log(window);
+
+  console.log(logStats("data"));
+  
+  statsHelper();
+  
+  
+</script>
+<body>
+   
+    
+</body>
+</html>

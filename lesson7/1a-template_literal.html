@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>template literal</title>
+</head>
+<script>
+    let name = "zpl";
+    let msg = `welcome ${name} ,having a good day`;
+    console.log(msg);
+
+
+    let multiline = `line one 
+                    line two`;
+    console.log(multiline);
+
+    let multiline2 = "line one\nline two";
+
+    console.log(multiline2);
+
+
+    let userInput = "tab template"
+    let html = domTag`<div class="first-name">${userInput}</div>`;
+    console.log(html);
+
+    
+
+</script>
+<body>
+    
+    
+</body>
+</html>

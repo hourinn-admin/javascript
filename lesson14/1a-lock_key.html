@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>lock and key</title>
+</head>
+<script>
+   function lock(secret){
+     const key = Symbol("key");
+     return {
+       key,
+       unlock(keyUsed){
+         if(key === keyUsed) return secret;
+         else return "*".repeat(secret.length)
+       }
+     }
+   }
+
+
+   const {key,unlock} = lock("this is my secret");
+   console.log(unlock(key));
+</script>
+<body>
+    
+    
+</body>
+</html>

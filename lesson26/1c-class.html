@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<script>
+
+  function Person(name,age) {
+      this.name = name;
+      this.age = age;
+  }
+
+  function Student(name,age,sto){
+    //copy over properties from one constructor into another constructor
+    Person.call(this,name,age);
+    this.sto = sto;
+  }
+
+  Student.prototype = Object.create(Person.prototype);
+
+  Student.prototype.score = function () {
+    console.log("it's a secret");
+  }
+
+  const student = new Student("zpl",29,1001);
+
+  console.log(Object.keys(student));
+
+  console.log(Student.prototype);
+
+  Person.prototype.great = function () {
+    console.log(`hello my name is ${this.name}`);
+  }
+
+  console.log(student.great());
+
+  console.log(student.score());
+
+</script>
+<body>
+</body>
+</html>

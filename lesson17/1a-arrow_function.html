@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<script>
+
+  const exponential = {
+      exponent:5,
+      calculate(...numbers){
+        const  that = this;
+        return numbers.map(function(n){
+          return Math.pow(n,that.exponent);
+        });
+      }
+  }
+
+  const arr = exponential.calculate(2,5,10);
+
+  console.log(arr);
+
+
+</script>
+<body>
+    
+    
+</body>
+</html>

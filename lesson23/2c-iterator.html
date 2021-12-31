@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>iterator</title>
+</head>
+<script>
+  
+    const myString = new String("Iterables are quite something");
+
+    console.log(typeof myString);
+
+    myString[Symbol.iterator] = function* (){
+      for(const word of this.split(" ")) yield word;
+    }
+
+    const words = [...myString];
+  
+    console.log(words);
+
+</script>
+<body>
+    
+
+</body>
+</html>

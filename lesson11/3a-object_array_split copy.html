@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Object Array split</title>
+</head>
+<script>
+
+   let product = {
+     name:"Whiskey Glass",
+     details:{
+       price:18.99,
+       description:"Enjoy your whiskey in this glass"
+     },
+     images:{
+       primary:"/images/main.jpg",
+       others:[
+         "/images/1.jpg",
+         "/images/2.jpg"
+       ]
+     }
+   };
+
+   let {name,details:{price,description},images:{primary,others:[firstImage,secondeImage]}} = product;
+
+   console.log(name,price,description,primary,firstImage,secondeImage);
+   console.log(details,images,others);
+
+</script>
+<body>
+    
+    
+</body>
+</html>

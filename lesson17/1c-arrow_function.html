@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>arrow function</title>
+</head>
+<script>
+
+  function pluck(object,...props){
+    return props.map(function(property){
+      return object[property];
+    });
+  }
+
+  const obj = {id:"1001",name:"zpl",age:29};
+
+  console.log(pluck(obj,"id","name","age"));
+
+
+  function pluck1(object,...props){
+    return props.map(property => object[property]);
+  }
+
+  console.log(pluck1(obj,"id","name","age"));
+
+  
+  
+</script>
+<body>
+    
+    
+</body>
+</html>

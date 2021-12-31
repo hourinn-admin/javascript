@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>template literal</title>
+</head>
+<script>
+   
+
+  　function  stripWS(){
+      let stringParts = arguments[0];
+      let values = [].slice.call(arguments,1);
+
+      let str = stringParts.reduce((memo,nextPart) => memo + String(values.shift()) + nextPart);
+
+      return str.replace(/\n\s*/g,"");
+    }
+
+    function getProductHtml(product){
+      return stripWS`
+        <div class="product">
+          <div class="product-image">
+            <img alt="${product.name}" src="${product.url}">
+          </div>
+          <div class="product-desc">${product.desc}</div>
+        </div>
+      `;
+    }
+
+    let product ={name:"iphone",
+                  url:"/a/b/c",
+                  desc:"price"
+                }
+    
+    console.log(getProductHtml(product));
+</script>
+<body>
+    
+
+</body>
+</html>

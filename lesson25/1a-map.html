@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>map</title>
+</head>
+<script>
+
+    
+    var map = new Map([[/\s/g,"it's regex"],[3,"it's number"],["str","it's string"]]);
+
+    console.log(map.keys());
+
+    //**************************************Object->Map
+
+    const person = {
+      name: ['Bob', 'Smith'],
+      age: 32,
+      gender: 'male',
+      interests: ['music', 'skiing']};
+
+    console.log(Object.keys(person));
+
+    //Array.prototype.map
+    const myMap = new Map(Object.keys(person).map(key => [key,person[key]]));
+
+    
+    //**************************************
+
+    console.log(Object.keys(myMap));
+
+    //**************************************
+
+    console.log(myMap.keys());  
+    console.log([...myMap.keys()]);
+
+    console.log(myMap.values());
+    console.log([...myMap.values()]);
+
+  
+</script>
+<body>
+    
+</body>
+</html>

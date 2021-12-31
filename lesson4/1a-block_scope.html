@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>let scope</title>
+</head>
+<script>
+  let  read,write
+  {
+    let data = {};
+    write = function(key,val){
+      data[key] = val;
+    }
+
+    read = function(key){
+      return data[key];
+    }
+  }
+
+  write("name","zpl");
+  console.log(read("name"));
+  console.log(data);    //ReferenceError
+
+  for(let j = 0;j < 5 ; j++){
+    console.log(j);
+  }
+
+  console.log(j);
+
+
+</script>
+<body>
+    
+    
+</body>
+</html>

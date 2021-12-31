@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>simple object literal</title>
+</head>
+<script>
+
+
+  function createStateManager(){
+     const state = {id:1001};
+     return {
+       update(changes){
+         console.log(state);
+         Object.assign(state,changes);
+         console.log(state);
+       },
+       getState:function (){
+         return Object.assign({},state);
+       }
+     }
+   }
+
+
+   function setValue(name,value){
+     const changes = {};
+     changes[name] = value;
+     stateManager.update(changes);
+   }
+    
+   const stateManager = createStateManager();
+
+
+   const [name,value] = ["firstName","zpl"];
+
+   setValue(name,value);
+
+   function setValue1(name,value){
+     stateManager.update({
+       [name]:value
+     });
+   }
+
+   const [name1,value1] = ["age",28];
+
+   setValue1(name1,value1);
+
+   
+
+   
+
+
+
+   
+</script>
+<body>
+    
+    
+</body>
+</html>

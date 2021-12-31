@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>map</title>
+</head>
+<script>
+
+   const map = new Map();
+
+   map.set("height",175);
+   map.set("weight",65);
+   map.set(new Date(),"1992-05-02");
+
+   const [height,weight,date] = map;
+
+   console.log(height);
+   console.log(weight);
+   console.log(date);
+
+   
+   const [[heightKey,hei],[weightKey,wei]] = map;
+
+   console.log(heightKey,hei);
+   console.log(weightKey,wei);
+
+   //**************************************
+   console.log("************************");
+   for(const [key,value] of map){
+     console.log(key,value);
+   }
+
+   console.log("************************");
+
+   const facets = {"height":175,"weight":65,"birthday":"1992-05-02"};
+
+   for(const key of Object.keys(facets)){
+     const value = facets[key];
+     console.log(key,value);
+   }
+  
+</script>
+<body>
+    
+</body>
+</html>

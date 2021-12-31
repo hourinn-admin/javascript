@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>object split</title>
+</head>
+<script>
+    let person = {
+      name:"zpl",
+      age:28
+    }
+  
+    let {name,age} = person;
+
+    console.log(name,age);
+   
+   let {name:firstName,age:yearsOld} = person;
+
+   console.log(firstName,yearsOld);
+
+   let person2 =  {name:firstName,age:yearsOld};
+
+   console.log(person2);
+   
+</script>
+<body>
+    
+    
+</body>
+</html>

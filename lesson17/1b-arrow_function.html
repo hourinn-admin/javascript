@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>arrow function</title>
+</head>
+<script>
+
+  　const exponent = function(exp) {
+          return function(base){
+            return base**exp
+      }
+    }
+
+    const square = exponent(3);
+
+    console.log(square(5));
+
+    const exponent1 = exp => base => base ** exp;
+
+    const square1 = exponent1(3);
+
+    console.log(square1(5));
+  
+</script>
+<body>
+    
+    
+</body>
+</html>

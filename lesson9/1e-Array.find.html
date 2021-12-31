@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Array.find</title>
+</head>
+<script>
+
+let cache = [{id:"apple"},{id:"orange"},{id:"banana"},{id:"watermelon"} ];
+
+function findFromCache(id){
+  const matches = cache.filter(record => record.id === id);
+
+  if(matches.length){
+    return matches[0];
+  }
+}
+
+function findFromCache2(id){
+  return cache.find(record => record.id === id);
+}
+
+console.log(findFromCache("banana"));
+console.log(findFromCache("orange"));
+</script>
+<body>
+    
+    
+</body>
+</html>

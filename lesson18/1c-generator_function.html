@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>generator function</title>
+</head>
+<script>
+    
+    function* fibonacci(){
+      let prev = 0,next = 1;
+      while(true){
+        yield next;
+        [next,prev] = [next + prev, next];
+      }
+    }
+
+    function take(gen,count){
+      return Array(count).fill(1).map(
+        () => gen.next().value
+      );
+    }
+
+    console.log(take(fibonacci(),7));
+
+</script>
+<body>
+
+    
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>iterator</title>
+</head>
+<script>
+  
+  function* primesIterartor(){
+    yield 2;
+    yield 3;
+    yield 5;
+  }
+
+  const primesIterable = {
+    [Symbol.iterator] : primesIterartor
+  }
+
+  console.log([...primesIterable]);
+
+  console.log([...primesIterartor()]);
+
+</script>
+<body>
+    
+
+</body>
+</html>

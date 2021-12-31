@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>template literal</title>
+</head>
+<script>
+   
+
+  　function  createTag(func){
+
+    return function(){
+
+        const stringParts = arguments[0];
+        const values = [].slice.call(arguments,1);
+
+        return func(stringParts,values);
+
+        //return str.replace(/\n\s*/g,"");
+     }
+    }
+
+    function interlace(strs,vals,processer=String){
+      vals = [...vals];
+      return strs.reduce((all,nextPart) => all + processer(vals.shift()) + nextPart);
+    }
+
+    function htmlEscape(str){
+      str = str.replace(/</g,"<");
+      str = str.replace(/>/g,"<");
+      return str;
+    }
+
+    const htmlSafe = (strs, ...vals) => interlace(strs,vals,htmlEscape);
+
+    const userInput = "I <3 ES6!";
+
+    console.log(htmlSafe`<strong>${userInput}</strong>`);
+
+
+
+</script>
+<body>
+    
+
+</body>
+</html>

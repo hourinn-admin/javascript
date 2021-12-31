@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<script>
+
+  function Person(name,age) {
+    this.name = name;
+    this.age = age;
+  }
+
+   const p = new Person("zpl",29);
+   console.log(Object.keys(p));
+   console.log(p);
+   console.log(p.__proto__);
+
+   console.log("**************************************")
+   console.log(Person.prototype);
+
+   Person.prototype.greet = function sayGreet() {
+     console.log(`${this.name} say hello`);
+   }
+
+   console.log(p.__proto__);
+
+   p.greet();
+
+
+</script>
+<body>
+   
+    
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>array parameter split</title>
+</head>
+<script>
+  function car(make = "Ford",model = "Mustang",year = "2021"){
+    console.log(`make:${make} model:${model} year:${year}`)
+  }
+
+  car(undefined,undefined,2022);
+  console.log("************************")
+
+  function car1({make,model,year}){
+    console.log(`make:${make} model:${model} year:${year}`)
+  }
+
+  car1({year:2022})
+  console.log("************************")
+
+  function car2({make,model,year} = {make:"Ford",model:"Mustang",year:"2021"}){
+    console.log(`make:${make} model:${model} year:${year}`)
+  }
+
+  car2({year:2022})
+  car2();
+  console.log("************************")
+
+  function car3({make = "Ford",model = "Mustang",year = "2021"}){
+    console.log(`make:${make} model:${model} year:${year}`)
+  }
+
+  car3({year:2022})
+  car3({});
+  console.log("************************")
+
+
+  function car4({make = "Ford",model = "Mustang",year = "2021"} = {}){
+    console.log(`make:${make} model:${model} year:${year}`)
+  }
+
+  car4({year:2022})
+  car4();
+  console.log("************************")
+
+
+</script>
+<body>
+    
+    
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>symbol as key</title>
+</head>
+<script>
+
+    
+    const store = {};
+    store._internals = "foo";
+
+    console.log(store._internals);
+
+    for(var prop in store){
+      console.log(prop);
+    }
+
+    let props = Object.getOwnPropertyNames(store);
+    console.log(props);
+
+    const store1 = {
+      [Symbol("_internals")]:"foo",
+      name:"storename"
+    }
+
+    console.log(store1);
+
+    for(var prop in store1){
+      console.log(prop);
+    }
+
+    let props1 = Object.getOwnPropertyNames(store1);
+    console.log(props1);
+    let nameProp = props1["0"];
+    console.log(store1[nameProp]);
+
+    props1 = Object.getOwnPropertySymbols(store1);
+    console.log(props1);
+    nameProp = props1["0"];
+    console.log(store1[nameProp]);
+
+
+  </script>
+<body>
+    
+    
+</body>
+</html>

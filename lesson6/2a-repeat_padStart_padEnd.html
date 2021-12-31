@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>repeat padStart padEnd</title>
+</head>
+<script>
+
+  let decimalIpStr = "192.168.0.1";
+  
+  function binaryIp(decimalIpStr){
+    return decimalIpStr.split(".").map(function(octet){
+      let bin = Number(octet).toString(2);
+      return "0".repeat(8 - bin.length) + bin;
+    }).join(".");
+  }
+
+  let binaryIpStr = binaryIp(decimalIpStr);
+  console.log(binaryIpStr);
+
+  console.log("abc".padStart(6));
+  console.log("abc".padEnd(6));
+
+  console.log("abc".padStart(6,"xyz"));
+  console.log("abc".padEnd(6,"xyz"));
+
+  
+  function binaryIp2(decimalIpStr){
+    return decimalIpStr.split(".").map(function(octet){
+      return Number(octet).toString(2).padStart(8,"0");
+    }).join(".");
+  }
+
+  console.log(binaryIp2(decimalIpStr));
+
+</script>
+<body>
+    
+    
+</body>
+</html>

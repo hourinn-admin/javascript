@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>arrow function</title>
+</head>
+<script>
+
+  const model = {
+    id:1001,
+    name:"zpl",
+    age:28,
+    get(propName){
+      return this[propName];
+    },
+    pluck(...props){
+      return props.map(function(prop){
+        return this.get(prop)
+      },this);
+    }
+  }
+
+  console.log(model.pluck("id","name","age"));
+
+  const model1 = {
+    id:1001,
+    name:"zpl",
+    age:28,
+    get(propName){
+      return this[propName];
+    },
+    pluck(...props){
+      return props.map(prop => this.get(prop));
+    }
+  }
+
+  console.log(model1.pluck("id","name","age"));
+
+</script>
+<body>
+    
+    
+</body>
+</html>

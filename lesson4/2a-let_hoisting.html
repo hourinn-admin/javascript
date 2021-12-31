@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>let hoisting</title>
+</head>
+<script>
+  let myData = getDefaultData();
+ 
+  if(true){
+    doSomePrework(myData);
+
+    let myData = getData();
+
+    doSomePostwork();
+  }
+
+  function getDefaultData(){
+    return "default data";
+  }
+
+  function getData(){
+    return "data";
+  }
+
+  function doSomePrework(data){
+    console.log("prework:" + data);
+  }
+
+  function doSomePostwork(){}
+
+  
+
+
+</script>
+<body>
+    
+    
+
+    
+</body>
+</html>

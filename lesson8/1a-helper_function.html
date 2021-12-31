@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>domain-specific language</title>
+</head>
+<script>
+
+    
+    function createTag(func){
+      return function(){
+        let stringParts = arguments[0];
+        let values = [].slice.call(arguments,1);
+        
+        return func(stringParts,values);
+      }
+    }
+
+    function interlace(strs,vals){
+      return strs.reduce((all,str) => all + String(vals.shift()) + str);
+    }
+    
+
+    let processNormally = createTag(interlace);
+    let text = "click me";
+    console.log(processNormally`<a>${text}</a>`)
+
+
+</script>
+<body>
+    
+    
+</body>
+</html>

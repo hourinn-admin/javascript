@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>const、</title>
+</head>
+<script>
+  
+  const myConst = "bar";
+  //myConst = "bee";     //Error
+
+  const num = 5;
+  //num = 6;      //Error
+
+
+  const mutableConstant = {};
+
+  mutableConstant.foo = "bar";
+
+  mutableConstant.foo = "baz";
+
+  console.log(mutableConstant.foo)
+
+  //mutableConstant = {foo : "baz"};   //Error
+
+
+  const a = "hello";
+  const b = a.concat(",world!");
+
+  console.log(b);
+
+  
+</script>
+<body>
+    
+    
+</body>
+</html>

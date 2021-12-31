@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>generator function</title>
+</head>
+<script>
+    function* myGeneratorFunction(){
+
+      console.log("started");
+
+      let recievedA = yield "a";
+
+      console.log("recievedA:",recievedA);
+
+      let recievedB = yield "b";
+
+      console.log("recievedB:",recievedB);
+      
+      return {};
+    }
+
+    const myGenerator = myGeneratorFunction();
+
+    console.log(myGenerator);
+
+    let gotA = myGenerator.next(0);
+
+    console.log("gotA",gotA);
+
+    let gotB = myGenerator.next(1);
+    
+    console.log("gotB",gotB);
+
+    let gotC = myGenerator.next(2);
+    
+    console.log("gotC",gotC);
+
+
+</script>
+<body>
+
+    
+</body>
+</html>
